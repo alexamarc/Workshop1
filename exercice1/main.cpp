@@ -3,44 +3,16 @@
 
 #include "geometry.h"
 
-// Set the position of the center
-
-void set_pos(geometry::Circle *c, double x, double y) {
-
-    c->x = x;
-    c->y = y;
-}
-
-// Calculate the perimeter of the circle
-
-double perimeter(geometry::Circle c) {
-
-    return 2 * M_PI * c.r;  
-}
-
-
-// Set the position of the top left corner
-
-void set_pos(geometry::Rectangle *r, double x, double y) {
- r->x = x;
- r->y = y;
-}
-
-// Calculate the perimeter of the rectangle
-
-double perimeter(geometry::Rectangle r) {
-    return 2 * (r.w + r.h);
- }
-
 
 int main() {
     geometry::Circle c{0, 0, 1};
-    std::cout << perimeter(c) << std::endl;
-    set_pos(&c, 1, 1);
-    std::cout << "Coordinates of the center: (" << c.x << ", " << c.y << ")" << std::endl;
+    std::cout << c.perimeter() << std::endl;
+    c.set_pos(1, 1);
     geometry::Rectangle r{0, 0, 1, 2};
-    std::cout << perimeter(r) << std::endl;
-    set_pos(&r, -1, -1);
-    std::cout << "Coordinates of the top left corner: (" << r.x << ", " << r.y << ")" << std::endl;
+    std::cout << r.perimeter() << std::endl;
+    r.set_pos( -1, -1);
+
+    std::cout << " L'aire du cercle est " << c.area() << std::endl;
+    std::cout << " L'aire du rectangle est " << r.area() << std::endl;
     return 0;
 }
